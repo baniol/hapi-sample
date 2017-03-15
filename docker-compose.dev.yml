@@ -1,0 +1,13 @@
+version: '2'
+services:
+  hapidev:
+    container_name: hapidev
+    extends:
+      file: docker-compose.yml
+      service: hapiprod
+    environment:
+      NODE_ENV: development
+    command: pm2-dev server.js
+    volumes:
+      - .:/home/app/hapi
+      - /home/app/hapi/node_modules

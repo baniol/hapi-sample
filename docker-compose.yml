@@ -1,0 +1,11 @@
+version: '2'
+services:
+  hapiprod:
+    container_name: hapiprod
+    build: .
+    environment:
+      NODE_ENV: production
+      HOST: '0.0.0.0'
+      PORT: 8000
+    ports:
+      - '8000:8000'

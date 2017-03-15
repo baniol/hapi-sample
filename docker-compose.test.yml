@@ -1,0 +1,11 @@
+version: '2'
+services:
+  hapitest:
+    container_name: hapitest
+    extends:
+      file: docker-compose.yml
+      service: hapiprod
+    command: npm run test:watch
+    volumes:
+      - .:/home/app/hapi
+      - /home/app/hapi/node_modules

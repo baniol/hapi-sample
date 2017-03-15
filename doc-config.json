@@ -1,0 +1,21 @@
+{
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "source": {
+        "include": [
+            "./api"
+        ],
+        "includePattern": ".+\\.js(doc)?$",
+        "excludePattern": "docs"
+    },
+    "plugins": [],
+    "opts": {
+        "template": "templates/default",
+        "encoding": "utf8",
+        "destination": "./doc",
+        "recurse": true,
+        "private": false,
+        "readme": "./readme.md"
+    }
+}
