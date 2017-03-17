@@ -8,6 +8,8 @@ node {
     stage 'Docker build'
     def tagName = gitTagName()
     echo "Tag Name: $tagName"
+    def build = !(tagName ==~ /devtest-.*/);
+    echo "Pass? $build"
 }
 
 /** @return The tag name, or `null` if the current commit isn't a tag. */
