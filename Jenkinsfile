@@ -16,12 +16,19 @@
 // }
 
 node {
+    // checkout([
+    //     $class: 'GitSCM',
+    //     branches: [[name: '*/master']],
+    //     // userRemoteConfigs: [[
+    //     //     refspec: 'refs/tags/devtest*'
+    //     // ]]
+    // ])
     checkout([
-        $class: 'GitSCM',
-        branches: [[name: '*/master']],
-        // userRemoteConfigs: [[
-        //     refspec: 'refs/tags/devtest*'
-        // ]]
+         $class: 'GitSCM',
+         branches: scm.branches,
+         doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+         extensions: scm.extensions,
+         userRemoteConfigs: scm.userRemoteConfigs
     ])
     sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
 }
