@@ -20,7 +20,7 @@ node {
         $class: 'GitSCM',
         branches: [[name: 'refs/heads/pt']],
         userRemoteConfigs: [[
-            refspec: 'refs\/tags\/release\/([0-9]+\.[0-9]+\.[0-9]+)$'
+            refspec: 'refs/tags/devtest*'
         ]]
     ])
     sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
