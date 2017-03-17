@@ -16,6 +16,7 @@
 // }
 
 node {
+  checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[]]])
     // checkout([
     //     $class: 'GitSCM',
     //     branches: [[name: '*/master']],
@@ -23,14 +24,14 @@ node {
     //     //     refspec: 'refs/tags/devtest*'
     //     // ]]
     // ])
-    checkout([
-         $class: 'GitSCM',
-         branches: scm.branches,
-         doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
-         extensions: scm.extensions,
-         userRemoteConfigs: scm.userRemoteConfigs
-    ])
-    sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
+    // checkout([
+    //      $class: 'GitSCM',
+    //      branches: scm.branches,
+    //      doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
+    //      extensions: scm.extensions,
+    //      userRemoteConfigs: scm.userRemoteConfigs
+    // ])
+    // sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
 }
 
 /** @return The tag name, or `null` if the current commit isn't a tag. */
