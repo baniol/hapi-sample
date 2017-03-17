@@ -1,6 +1,6 @@
 {
   "name": "hapi-sample",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "hapi-sample",
   "main": "server.js",
   "scripts": {
@@ -15,7 +15,9 @@
     "docker:rm": "docker rm $(docker ps -aqf status=exited)",
     "precommit": "npm run lint && npm test"
   },
-  "keywords": ["dazn"],
+  "keywords": [
+    "dazn"
+  ],
   "author": "DAZN",
   "private": true,
   "repository": {
