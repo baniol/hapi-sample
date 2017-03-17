@@ -2,10 +2,17 @@ node {
     stage 'Checkout'
     checkout scm
 
+
     def tagName = gitTagName()
     echo "Tag Name: $tagName"
     def build = (tagName ==~ /devtest-.*/);
     echo "Pass? $build"
+    if (!build) {
+      return
+    }
+
+    stage 'After'
+    echo "lallalala"
 }
 
 /** @return The tag name, or `null` if the current commit isn't a tag. */
