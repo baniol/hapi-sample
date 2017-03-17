@@ -1,6 +1,6 @@
 {
   "name": "hapi-sample",
-  "version": "2.5.3",
+  "version": "2.5.5",
   "description": "hapi-sample",
   "main": "server.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "docker:login": "docker-compose -f docker-compose.dev.yml run -u root hapidev /bin/sh",
     "docker:rm": "docker rm $(docker ps -aqf status=exited)",
     "precommit": "npm run lint && npm test",
-    "version": "npm version --no-git-tag-version"
+    "bump": "npm version --no-git-tag-version"
   },
   "keywords": [
     "dazn"
