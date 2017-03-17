@@ -2,13 +2,9 @@ node {
     stage 'Checkout'
     checkout scm
 
-    // def tagName = gitTagName()
-    // echo "Tag Name: $tagName"
-
-    stage 'Docker build'
     def tagName = gitTagName()
     echo "Tag Name: $tagName"
-    def build = !(tagName ==~ /devtest-.*/);
+    def build = (tagName ==~ /devtest-.*/);
     echo "Pass? $build"
 }
 
