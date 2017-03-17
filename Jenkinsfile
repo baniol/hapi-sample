@@ -1,18 +1,31 @@
+// node {
+//     stage 'Checkout'
+//     checkout scm
+//
+//
+//     def tagName = gitTagName()
+//     echo "Tag Name: $tagName"
+//     def build = (tagName ==~ /devtest-.*/);
+//     echo "Pass? $build"
+//     if (!build) {
+//       return
+//     }
+//
+//     stage 'After'
+//     echo "lallalala"
+// }
+
 node {
-    stage 'Checkout'
-    checkout scm
-
-
-    def tagName = gitTagName()
-    echo "Tag Name: $tagName"
-    def build = (tagName ==~ /devtest-.*/);
-    echo "Pass? $build"
-    if (!build) {
-      return
-    }
-
-    stage 'After'
-    echo "lallalala"
+    checkout([
+        $class: 'GitSCM',
+        branches: [[name: 'refs/heads/pt']],
+        userRemoteConfigs: [[
+            name: 'origin',
+            refspec: 'pull-requests/1/from',
+            url: path
+        ]]
+    ])
+    sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
 }
 
 /** @return The tag name, or `null` if the current commit isn't a tag. */
