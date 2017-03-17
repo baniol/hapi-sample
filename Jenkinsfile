@@ -21,8 +21,9 @@ node {
     branches: [[name: '*/master']],
     doGenerateSubmoduleConfigurations: false,
     extensions: [ [$class: 'UserExclusion', excludedUsers: 'jenkins'], [$class: 'CleanBeforeCheckout'], [$class: 'LocalBranch', localBranch: 'master'] ],
-    userRemoteConfigs: [[ credentialsId: 'c54d3f64-789b-404e-9ec1-24322d6292c4',
-    url: "git@github.com:baniol/hapi-sample.git",
+    userRemoteConfigs: [[
+    // credentialsId: 'c54d3f64-789b-404e-9ec1-24322d6292c4',
+    url: "git@github.com:baniol@SZapo_1275/hapi-sample.git",
     refspec: '+refs/heads/master:refs/remotes/origin/master' ]] ])
     // checkout([
     //     $class: 'GitSCM',
