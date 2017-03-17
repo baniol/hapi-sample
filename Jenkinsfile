@@ -18,7 +18,7 @@
 node {
     checkout([
         $class: 'GitSCM',
-        branches: [[name: 'pt']],
+        branches: [[name: 'refs/heads/*:refs/remotes/origin/*']],
         // userRemoteConfigs: [[
         //     refspec: 'refs/tags/devtest*'
         // ]]
