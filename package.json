@@ -13,7 +13,8 @@
     "docker:prod": "docker-compose up",
     "docker:login": "docker-compose -f docker-compose.dev.yml run -u root hapidev /bin/sh",
     "docker:rm": "docker rm $(docker ps -aqf status=exited)",
-    "precommit": "npm run lint && npm test"
+    "precommit": "npm run lint && npm test",
+    "version": "version --no-git-tag-version"
   },
   "keywords": [
     "dazn"
