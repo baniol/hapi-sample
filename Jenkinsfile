@@ -1,31 +1,30 @@
-node {
-    stage 'Checkout'
-    checkout scm
-
-
-    def tagName = gitTagName()
-    echo "Tag Name: $tagName"
-    def build = (tagName ==~ /devtest-.*/);
-    echo "Pass? $build"
-    if (!build) {
-      deleteDir()
-      return
-    }
-
-    stage 'After'
-    echo "lallalala"
-}
-
 // node {
-//     checkout([
-//         $class: 'GitSCM',
-//         branches: [[name: 'refs/heads/pt']],
-//         userRemoteConfigs: [[
-//             refspec: 'refs/tags/devtest*'
-//         ]]
-//     ])
-//     sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
+//     stage 'Checkout'
+//     checkout scm
+//
+//
+//     def tagName = gitTagName()
+//     echo "Tag Name: $tagName"
+//     def build = (tagName ==~ /devtest-.*/);
+//     echo "Pass? $build"
+//     if (!build) {
+//       return
+//     }
+//
+//     stage 'After'
+//     echo "lallalala"
 // }
+
+node {
+    checkout([
+        $class: 'GitSCM',
+        branches: [[name: 'pt']],
+        // userRemoteConfigs: [[
+        //     refspec: 'refs/tags/devtest*'
+        // ]]
+    ])
+    sh 'git log -n 10 --graph --pretty=oneline --abbrev-commit --all --decorate=full'
+}
 
 /** @return The tag name, or `null` if the current commit isn't a tag. */
 String gitTagName() {
