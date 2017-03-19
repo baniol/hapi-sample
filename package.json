@@ -1,6 +1,6 @@
 {
   "name": "hapi-sample",
-  "version": "2.5.15",
+  "version": "2.5.16",
   "description": "hapi-sample",
   "main": "server.js",
   "scripts": {
