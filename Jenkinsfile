@@ -5,7 +5,7 @@ node {
 
     def tagName = gitTagName()
     echo "Tag Name: $tagName"
-    def build = (tagName ==~ /devtest-.*/);
+    def build = (tagName ==~ /devtest-.*/ || tagName ==~ /release-.*/);
     echo "Pass? $build"
     if (!build) {
       currentBuild.result = 'ABORTED'
