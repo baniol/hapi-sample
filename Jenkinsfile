@@ -8,6 +8,7 @@ node {
     def build = (tagName ==~ /devtest-.*/);
     echo "Pass? $build"
     if (!build) {
+      currentBuild.result = 'ABORTED'
       return
     }
 
